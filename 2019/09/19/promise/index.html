@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>promise - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="ZouZou,"> 
+    <meta name="description" content="Promise与Async/Await的用法整理1、Promise在JavaScript中，所有代码都是单线程执行的，JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">promise</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">promise</h1>
+        <div class="stuff">
+            <span>九月 19, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Promise与Async-Await的用法整理"><a href="#Promise与Async-Await的用法整理" class="headerlink" title="Promise与Async/Await的用法整理"></a>Promise与Async/Await的用法整理</h1><h2 id="1、Promise"><a href="#1、Promise" class="headerlink" title="1、Promise"></a>1、Promise</h2><p>在JavaScript中，所有代码都是单线程执行的，JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现，异步操作会在将来的某个时间点触发一个函数调用，这种“承诺将来会执行（并且一定会执行）”的对象在JavaScript中称为Promise对象。<br>Promise对象的基本语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Promise((resolve,reject) =&gt; &#123;</span><br><span class="line">    //.....</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>从语法上来说，Promise是一个对象，从它可以获取异步操作的消息。<br>基本语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let p = new Promise((resolve,reject) =&gt; &#123;</span><br><span class="line">    //...</span><br><span class="line">    resolve('success')</span><br><span class="line">&#125;);</span><br><span class="line">p.then(result =&gt; &#123;</span><br><span class="line">    console.log(result);//success</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Promise对象的特点（三个状态）："><a href="#Promise对象的特点（三个状态）：" class="headerlink" title="Promise对象的特点（三个状态）："></a>Promise对象的特点（三个状态）：</h4><p>1.对象的状态不受外界影响<br>2.一但状态改变了，就已经确定，状态会被凝固</p>
+<p>三种状态：<br>pending/reslove/reject 。pending就是未决，resolve可以理解为成功，reject可以理解为拒绝</p>
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let test = new Promise((resolve,reject) =&gt; &#123;</span><br><span class="line">    //...</span><br><span class="line">    resolve('成功');</span><br><span class="line">    console.log('其实promise对象是立即执行的');</span><br><span class="line">    reject('失败');</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">test.then(result =&gt; &#123;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">test.catch(result =&gt; &#123;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">其实promise对象是立即执行的</span><br><span class="line">成功</span><br></pre></td></tr></table></figure>
+
+<p>为什么reject的状态信息在下面没有接受到呢？上面例子里面resolve下面的语句其实是可以执行的，这就是因为Promise对象的特点：状态的凝固。new出一个Promise对象时，这个对象的起始状态就是Pending状态，在根据resolve或reject返回Fulfilled状态/Rejected状态。基本上 resolve(‘成功’); 和  reject(‘失败’);是谁先执行谁就确定了这个promise对象的状态。</p>
+<h4 id="Promise-prototype-then"><a href="#Promise-prototype-then" class="headerlink" title="Promise.prototype.then"></a>Promise.prototype.then</h4><p> 它的作用是为Promise实例状态改变时的回调函数，它接收两个参数：1.resolve的信息 2.reject的信息<br> 语法形式：<br>1.xx.then(resolve, reject)<br>2.xx.then(resolve)<br>3.xx.then(null, reject)</p>
+<h4 id="Promise的链式调用"><a href="#Promise的链式调用" class="headerlink" title="Promise的链式调用"></a>Promise的链式调用</h4><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">let test = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    let random = Math.random()</span><br><span class="line">    if (random &gt; 0.5) &#123;</span><br><span class="line">        resolve('大于0.5')</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        reject('小于等于0.5')</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">let p = test.then((result) =&gt; &#123;</span><br><span class="line">    console.log(result)</span><br><span class="line">    return result</span><br><span class="line">&#125;).catch((result) =&gt; &#123;</span><br><span class="line">    console.log(result)</span><br><span class="line">    return result</span><br><span class="line">&#125;).then((result) =&gt; &#123;</span><br><span class="line">    console.log(result)</span><br><span class="line">    return result</span><br><span class="line">&#125;).then((result) =&gt; &#123;</span><br><span class="line">    console.log('last', result)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.log(p)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Promise &#123;《pending&gt;&#125;</span><br><span class="line">小于等于0.5</span><br><span class="line">小于等于0.5</span><br><span class="line">last小于等于0.5</span><br></pre></td></tr></table></figure>
+
+<h4 id="Promise-prototype-catch"><a href="#Promise-prototype-catch" class="headerlink" title="Promise.prototype.catch"></a>Promise.prototype.catch</h4><p>它的作用是为<strong>Promise实例状态变为reject的回调函数</strong><br>语法形式：xx.catch(reject) 可以认为是xx.then(null, reject)的简写形式</p>
+<h4 id="Promise-resolve"><a href="#Promise-resolve" class="headerlink" title="Promise.resolve()"></a>Promise.resolve()</h4><p>将普通对象转为Promise对象，语法形式：Promise.resolve({name:’xixi’,age:’xxxx’})<br>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 如果本身就是一个Promise对象，就直接返回</span><br><span class="line">let p = new Promise((resolve,reject) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        resolve('success');</span><br><span class="line">    &#125;,500);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">let pp = Promise.resolve(p);</span><br><span class="line"></span><br><span class="line">pp.then(result =&gt; &#123;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(pp == p);</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">success</span><br></pre></td></tr></table></figure>
+
+<h4 id="Promise-reject"><a href="#Promise-reject" class="headerlink" title="Promise.reject()"></a>Promise.reject()</h4><p>快速地获取一个reject状态的Promise对象<br>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let p = Promise.reject(123);</span><br><span class="line"></span><br><span class="line">console.log(p);</span><br><span class="line"></span><br><span class="line">p.then(result =&gt; &#123;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;).catch(result =&gt; &#123;</span><br><span class="line">    console.log('catch' + result);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Promise &#123; <span class="tag">&lt;<span class="name">rejected</span>&gt;</span> 123 &#125;</span><br><span class="line">catch123</span><br></pre></td></tr></table></figure>
+
+<h4 id="Promise-all-与Promise-race"><a href="#Promise-all-与Promise-race" class="headerlink" title="Promise.all()与Promise.race()"></a>Promise.all()与Promise.race()</h4><p>Promise.all可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。<br>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">let p1 = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">  resolve('成功了')</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">let p2 = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">  resolve('success')</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">let p3 = Promse.reject('失败')</span><br><span class="line"></span><br><span class="line">Promise.all([p1, p2]).then((p1Result,p2Result) =&gt; &#123;</span><br><span class="line">  console.log(p1Result + p2Result)               //成功了success</span><br><span class="line">&#125;).catch((error) =&gt; &#123;</span><br><span class="line">  console.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Promise.all([p1,p3,p2]).then((result) =&gt; &#123;</span><br><span class="line">  console.log(result)</span><br><span class="line">&#125;).catch((error) =&gt; &#123;</span><br><span class="line">  console.log(error)      // 失败了，打出 '失败'</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>意思就是说Promise.all括号里的各个promise处理完才会进入到Promise.all的then方法，姑且算是有点同步的效果吧。Promse.all在处理多个异步处理时非常有用，比如说一个页面上需要等两个或多个ajax的数据回来以后才正常显示，在此之前只显示loading图标。要特别注意的是，Promise.all获得的成功结果的数组里面的数据顺序和Promise.all接收到的数组顺序是一致的，即p1的结果在前，即便p1的结果获取的比p2要晚。这带来了一个绝大的好处：在前端开发请求数据的过程中，偶尔会遇到发送多个请求并根据请求顺序获取和使用数据的场景，使用Promise.all毫无疑问可以解决这个问题。</p>
+<p>Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。<br>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let p1 = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    resolve('success')</span><br><span class="line">  &#125;,1000)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">let p2 = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    reject('failed')</span><br><span class="line">  &#125;, 500)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Promise.race([p1, p2]).then((result) =&gt; &#123;</span><br><span class="line">  console.log(result)</span><br><span class="line">&#125;).catch((error) =&gt; &#123;</span><br><span class="line">  console.log(error)  // 打开的是 'failed'</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、Async-Await"><a href="#2、Async-Await" class="headerlink" title="2、Async/Await"></a>2、Async/Await</h2><p>Async/Await是寄生于Promise的<br>特点：<br>　　1.async/await是写异步代码的新方式，以前的方法有回调函数和Promise。<br>　　2.async/await是基于Promise实现的，它不能用于普通的回调函数。<br>　　3.async/await与Promise一样，是非阻塞的。<br>　　4.async/await使得异步代码看起来像同步代码，这正是它的魔力所在。</p>
+<p>语法形式：Async func1 () {}<br>这样的函数前面多了一个aync关键字。<strong>await关键字只能用在aync定义的函数内</strong>。async函数会隐式地返回一个promise，该promise的reosolve值就是函数return的值。await的意思是等待当前await函数执行完以后才能接着往下执行<br>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">async function demo() &#123;</span><br><span class="line">    let result = await Promise.resolve(123);</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Async-Await相较于Promise的优点"><a href="#Async-Await相较于Promise的优点" class="headerlink" title="Async/Await相较于Promise的优点"></a>Async/Await相较于Promise的优点</h4><p>使用async函数可以让代码简洁很多，不需要像Promise一样需要些then，不需要写匿名函数处理Promise的resolve值，也不需要定义多余的data变量，还避免了嵌套代码。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Promise与Async-Await的用法整理"><span class="toc-number">1.</span> <span class="toc-text">Promise与Async/Await的用法整理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、Promise"><span class="toc-number">1.1.</span> <span class="toc-text">1、Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise对象的特点（三个状态）："><span class="toc-number">1.1.0.1.</span> <span class="toc-text">Promise对象的特点（三个状态）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-prototype-then"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">Promise.prototype.then</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise的链式调用"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">Promise的链式调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-prototype-catch"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">Promise.prototype.catch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-resolve"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">Promise.resolve()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-reject"><span class="toc-number">1.1.0.6.</span> <span class="toc-text">Promise.reject()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-all-与Promise-race"><span class="toc-number">1.1.0.7.</span> <span class="toc-text">Promise.all()与Promise.race()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、Async-Await"><span class="toc-number">1.2.</span> <span class="toc-text">2、Async/Await</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Async-Await相较于Promise的优点"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">Async/Await相较于Promise的优点</span></a></li></ol></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
