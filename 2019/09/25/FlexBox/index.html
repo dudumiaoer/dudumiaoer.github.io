@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FlexBox - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="ZouZou,"> 
+    <meta name="description" content="关于css弹性盒子   使用弹性盒子的意义是在任何尺寸的屏幕上改变其和其子元素的尺寸填充屏幕可用空间。一个弹性框容器将延展它的子元素以填充可用空间，并且缩小它的子元素来避免溢出。布局的传统解决方案，,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://dudumiaoer.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">FlexBox</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">FlexBox</h1>
+        <div class="stuff">
+            <span>九月 25, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="关于css弹性盒子"><a href="#关于css弹性盒子" class="headerlink" title="关于css弹性盒子"></a>关于css弹性盒子</h1><p>   使用弹性盒子的意义是在任何尺寸的屏幕上改变其和其子元素的尺寸填充屏幕可用空间。一个弹性框容器将延展它的子元素以填充可用空间，并且缩小它的子元素来避免溢出。布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p>
+<h4 id="如何创建一个弹性盒子"><a href="#如何创建一个弹性盒子" class="headerlink" title="如何创建一个弹性盒子"></a>如何创建一个弹性盒子</h4><p>你需要：1.容器： 需要添加弹性布局的父元素。 2.项目： 弹性布局容器中的每一个子元素，称为项目<br>使用：</p>
+<ol>
+<li>给父容器添加display: flex/inline-flex;属性，即可使容器内容采用弹性布局显示，而不遵循常规文档流的显示方式；</li>
+<li>容器添加弹性布局后，仅仅是容器内容采用弹性布局，而容器自身在文档流中的定位方式依然遵循常规文档流；</li>
+<li>display:flex; 容器添加弹性布局后，显示为块级元素；</li>
+<li>display:inline-flex; 容器添加弹性布局后，显示为行级元素；</li>
+<li>设为 Flex布局后，子元素的float、clear和vertical-align属性将失效。但是position属性，依然生效。</li>
+</ol>
+<h4 id="弹性盒子布局轴"><a href="#弹性盒子布局轴" class="headerlink" title="弹性盒子布局轴"></a>弹性盒子布局轴</h4><ol>
+<li>主轴(main axis)，主轴区域(main dimension)。弹性容器的主轴指的是弹性元素主要沿着哪个方向布局。它在主轴区域中延伸。</li>
+<li>主轴起点(main-Start)，主轴终点(main-end)。弹性元素被放置于容器中从主轴起点到主轴终点放置。</li>
+<li>主轴尺寸(main size)，主轴尺寸属性(main size property)。一个弹性元素的主轴尺寸指的是其在主轴区域内的长度。其主轴尺寸属性指的是其对应的属性。</li>
+<li>侧轴(cross axis)，侧轴区域(cross dimension)。侧轴垂直于主轴。它在侧轴区域中延伸。</li>
+<li>侧轴起点(cross-Start)，侧轴终点(cross-end)。浮动行被元素填充，并且在容器中沿侧轴方向从起点向终点分布。</li>
+<li>侧轴尺寸(cross size)，侧轴尺寸属性(cross size property)。一个弹性元素的侧轴尺寸指的是其在侧轴区域内的长度。其侧轴尺寸属性指的是其对应的属性<br><img src="https://www.runoob.com/wp-content/uploads/2015/07/3791e575c48b3698be6a94ae1dbff79d.png" alt="flexAxis"></li>
+</ol>
+<h4 id="属性功能及代码示例"><a href="#属性功能及代码示例" class="headerlink" title="属性功能及代码示例"></a>属性功能及代码示例</h4><p>  配合“display: flex;”使用的12大属性。其中，12个属性分为两类，6个作用于父容器，6个作用于子项目。<br>  1.给容器（父元素）加上display:flex,项目（子元素）就会在容器内部打破原有文档流模式，展现为弹性布局<br>  例子：<br>  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// html部分</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">// css部分</span><br><span class="line">#div&#123;</span><br><span class="line">  width: 500px;</span><br><span class="line">  height: 400px;</span><br><span class="line">  background-color: lightskyblue;</span><br><span class="line">  display: flex;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">#div div&#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background-color: pink;</span><br><span class="line">  color: white;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>效果：<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img1.png" alt></p>
+<h3 id="父容器上的6大属性"><a href="#父容器上的6大属性" class="headerlink" title="父容器上的6大属性"></a>父容器上的6大属性</h3><h5 id="1-flex-direction属性决定主轴的方向（即项目的排列方向）。"><a href="#1-flex-direction属性决定主轴的方向（即项目的排列方向）。" class="headerlink" title="1. flex-direction属性决定主轴的方向（即项目的排列方向）。"></a>1. flex-direction属性决定主轴的方向（即项目的排列方向）。</h5><pre><code>row（默认值）： 主轴为水平方向，起点在左端。
+row-reverse： 主轴在水平方向，起点在右端。
+column：主轴为垂直方向，起点在上沿。
+column-reverse：主轴为垂直方向，起点在下沿。</code></pre><p>效果：</p>
+<ol>
+<li>flex-direction： row<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img2.png" alt></li>
+<li>flex-direction： row-reverse<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img3.png" alt></li>
+<li>flex-direction： column<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img4.png" alt></li>
+<li>flex-direction： column-reverse<br>![](FlexBox/img5.png）</li>
+</ol>
+<h5 id="2-flex-wrap属性定义，如果一条轴线排不下，如何换行。"><a href="#2-flex-wrap属性定义，如果一条轴线排不下，如何换行。" class="headerlink" title="2. flex-wrap属性定义，如果一条轴线排不下，如何换行。"></a>2. flex-wrap属性定义，如果一条轴线排不下，如何换行。</h5><pre><code>nowrap（默认）：不换行。当容器宽度不够时，每个项目会被挤压宽度；
+wrap： 换行，并且第一行在容器最上方；
+wrap-reverse： 换行，并且第一行在容器最下方。</code></pre><p>我们首先调整一下父容器和子项目的大小：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// css部分</span><br><span class="line">  #div&#123;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    background-color: lightskyblue;</span><br><span class="line">    display: flex;</span><br><span class="line">   // flex-wrap: nowrap/wrap/wrap-reverse;</span><br><span class="line">  &#125;</span><br><span class="line">  #div div&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">    color: white;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ol>
+<li>flex-wrap: nowrap<br>可以看到没有换行，子项目的宽度被挤压了<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img6.png" alt></li>
+<li>flex-wrap: wrap<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img7.png" alt></li>
+<li>flex-warp: warp-reverse<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img8.png" alt></li>
+</ol>
+<h5 id="3-flex-flow是flex-direction-flex-wrap的简写形式。"><a href="#3-flex-flow是flex-direction-flex-wrap的简写形式。" class="headerlink" title="3. flex-flow是flex-direction + flex-wrap的简写形式。"></a>3. flex-flow是flex-direction + flex-wrap的简写形式。</h5><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// css部分</span><br><span class="line">  #div&#123;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    background-color: lightskyblue;</span><br><span class="line">    display: flex;</span><br><span class="line">    flex-flow: wrap-reverse row-reverse;</span><br><span class="line">  &#125;</span><br><span class="line">  #div div&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">    color: white;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img9.png" alt></p>
+<h5 id="4-justify-content属性定义了子项目在父容器主轴-main-axis-上的对齐方式（注意：不要忘记主轴方向是flex-direction定义过的哦，在此主轴方向上justify-content控制子项目在主轴上的对齐方式）。"><a href="#4-justify-content属性定义了子项目在父容器主轴-main-axis-上的对齐方式（注意：不要忘记主轴方向是flex-direction定义过的哦，在此主轴方向上justify-content控制子项目在主轴上的对齐方式）。" class="headerlink" title="4. justify-content属性定义了子项目在父容器主轴(main axis)上的对齐方式（注意：不要忘记主轴方向是flex-direction定义过的哦，在此主轴方向上justify-content控制子项目在主轴上的对齐方式）。"></a>4. justify-content属性定义了子项目在父容器主轴(main axis)上的对齐方式（注意：不要忘记主轴方向是flex-direction定义过的哦，在此主轴方向上justify-content控制子项目在主轴上的对齐方式）。</h5><pre><code>flex-start（默认值）： 项目位于主轴起点；
+flex-end：项目位于主轴终点；
+center： 居中；
+space-between：两端对齐，项目之间的间隔都相等。(开头和最后的项目，与父容器边缘没有间隔)；
+space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。(开头和最后的项目，与父容器边缘有一定的间隔)。</code></pre><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#div&#123;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    background-color: lightskyblue;</span><br><span class="line">    display: flex;</span><br><span class="line">    /*justify-content: flex-start/flex-end/center/space-between/space-around;*/</span><br><span class="line">  &#125;</span><br><span class="line">  #div div&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">    color: white;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ol>
+<li>justify-content: flex-start<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img10.png" alt></li>
+<li>justify-content: flex-end<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img11.png" alt></li>
+<li>justify-content: center<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img12.png" alt></li>
+<li>justify-content: space-between<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img13.png" alt></li>
+<li>justify-content: space-around<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img14.png" alt></li>
+</ol>
+<h5 id="5-align-items属性定义项目在侧轴上如何对齐。"><a href="#5-align-items属性定义项目在侧轴上如何对齐。" class="headerlink" title="5. align-items属性定义项目在侧轴上如何对齐。"></a>5. align-items属性定义项目在侧轴上如何对齐。</h5><pre><code>flex-start：侧轴的起点对齐。
+flex-end：侧轴的终点对齐。
+center：侧轴的中点对齐。
+baseline: 项目的第一行文字的基线对齐。(文字的行高、字体大小会影响每行的基线)
+stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</code></pre><p>效果：</p>
+<ol>
+<li>align-items：flex-start<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img15.png" alt></li>
+<li>align-items: flex-end<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img16.png" alt></li>
+<li>align-items: center<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img17.png" alt></li>
+<li>align-itesm: baseline<br>我把第一个div里面的字体变大了，然后设置align-itesm: baseline<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img18.png" alt></li>
+<li>align-items: stretch<br>子项目不设置高或高度为auto,父容器设置align-items: stretch<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img19.png" alt></li>
+</ol>
+<h5 id="6-align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。-当项目换为多行时，可使用align-content取代align-items"><a href="#6-align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。-当项目换为多行时，可使用align-content取代align-items" class="headerlink" title="6. align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。(当项目换为多行时，可使用align-content取代align-items)"></a>6. align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。(当项目换为多行时，可使用align-content取代align-items)</h5><pre><code>flex-start：与交叉轴的起点对齐。
+flex-end：与交叉轴的终点对齐。
+center：与交叉轴的中点对齐。
+space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+stretch（默认值）：轴线占满整个交叉轴。</code></pre><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#div&#123;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    background-color: lightskyblue;</span><br><span class="line">    display: flex;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">    align-content: center;</span><br><span class="line">  &#125;</span><br><span class="line">  #div div&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">    color: white;</span><br><span class="line">    border: 1px solid white;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img29.png" alt><br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img30.png" alt><br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img31.png" alt><br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img32.png" alt><br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img33.png" alt><br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img34.png" alt></p>
+<h3 id="子项目上的6大属性"><a href="#子项目上的6大属性" class="headerlink" title="子项目上的6大属性"></a>子项目上的6大属性</h3><h5 id="1-order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"><a href="#1-order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。" class="headerlink" title="1. order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"></a>1. order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</h5><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span> <span class="attr">style</span>=<span class="string">"order: 2"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span> <span class="attr">style</span>=<span class="string">"order: 1"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span> <span class="attr">style</span>=<span class="string">"order: 3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span> <span class="attr">style</span>=<span class="string">"order: 4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img20.png" alt></p>
+<h5 id="2-flex-grow属性定义项目的放大比例。默认为0（即有剩余空间也不放大"><a href="#2-flex-grow属性定义项目的放大比例。默认为0（即有剩余空间也不放大" class="headerlink" title="2. flex-grow属性定义项目的放大比例。默认为0（即有剩余空间也不放大)"></a>2. flex-grow属性定义项目的放大比例。默认为0（即有剩余空间也不放大)</h5><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span> <span class="attr">style</span>=<span class="string">"flex-grow: 1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span> <span class="attr">style</span>=<span class="string">"flex-grow: 2"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img21.png" alt></p>
+<h6 id="3-flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。设置为0的话就不缩小（其余div可能挤压得更严重），如果全设置为0的话那多余的div会溢出父容器（多余的部分就伸出父容器了）"><a href="#3-flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。设置为0的话就不缩小（其余div可能挤压得更严重），如果全设置为0的话那多余的div会溢出父容器（多余的部分就伸出父容器了）" class="headerlink" title="3. flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。设置为0的话就不缩小（其余div可能挤压得更严重），如果全设置为0的话那多余的div会溢出父容器（多余的部分就伸出父容器了）"></a>3. flex-shrink属性定义了项目的缩小比例，默认为1，即<strong>如果</strong>空间不足，该项目将缩小。设置为0的话就不缩小（其余div可能挤压得更严重），如果全设置为0的话那多余的div会溢出父容器（多余的部分就伸出父容器了）</h6><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 我把父容器的宽设置成了250px，子项目还是4个每个100px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span> <span class="attr">style</span>=<span class="string">"flex-shrink: 1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span> <span class="attr">style</span>=<span class="string">"flex-shrink: 0"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span> <span class="attr">style</span>=<span class="string">"flex-shrink: 2"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span> <span class="attr">style</span>=<span class="string">"flex-shrink: 3"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img22.png" alt></p>
+<h5 id="4-flex-basis定义项目占据的主轴空间。-如果主轴为水平，则设置这个属性，相当于设置项目的宽度。-原width将会失效。"><a href="#4-flex-basis定义项目占据的主轴空间。-如果主轴为水平，则设置这个属性，相当于设置项目的宽度。-原width将会失效。" class="headerlink" title="4. flex-basis定义项目占据的主轴空间。(如果主轴为水平，则设置这个属性，相当于设置项目的宽度。 原width将会失效。)"></a>4. flex-basis定义项目占据的主轴空间。(如果主轴为水平，则设置这个属性，相当于设置项目的宽度。 原width将会失效。)</h5><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span> <span class="attr">style</span>=<span class="string">"flex-basis: 170px"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>  <span class="attr">style</span>=<span class="string">"flex-basis: 110px"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img23.png" alt></p>
+<h5 id="5-flex属性是flex-grow-flex-shrink-和-flex-basis的简写，默认值为0-1-auto。后两个属性可选。"><a href="#5-flex属性是flex-grow-flex-shrink-和-flex-basis的简写，默认值为0-1-auto。后两个属性可选。" class="headerlink" title="5. flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。"></a>5. flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</h5><p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 已经设置父容器的宽为250px，子项目100px * 4个</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span> <span class="attr">style</span>=<span class="string">"flex: 2 1 200px"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img24.png" alt></p>
+<h5 id="6-align-self-定义单个项目自己在侧轴上的排列方式（会覆盖掉父容器上统一设置的align-items属性）"><a href="#6-align-self-定义单个项目自己在侧轴上的排列方式（会覆盖掉父容器上统一设置的align-items属性）" class="headerlink" title="6. align-self:定义单个项目自己在侧轴上的排列方式（会覆盖掉父容器上统一设置的align-items属性）"></a>6. align-self:定义单个项目自己在侧轴上的排列方式（会覆盖掉父容器上统一设置的align-items属性）</h5><p>属性值：同父容器align-items（flex-start/flex-end/center/baseline/stretch），默认值为auto(此时继承父容器的align-items属性值)。</p>
+<p>效果(在1号div上设置)：</p>
+<ol>
+<li>align-self：flex-start<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img25.png" alt></li>
+<li>align-self: flex-end<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img26.png" alt></li>
+<li>align-self: center<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img27.png" alt></li>
+<li>align-self: baseline(这个我看不出来效果emmmmm)</li>
+<li>align-self: stretch<br>这个要求当前子项目高为auto或没有设置高时拉伸生效<br><img src="//dudumiaoer.github.io/2019/09/25/FlexBox/img28.png" alt></li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于css弹性盒子"><span class="toc-number">1.</span> <span class="toc-text">关于css弹性盒子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何创建一个弹性盒子"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">如何创建一个弹性盒子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#弹性盒子布局轴"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">弹性盒子布局轴</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性功能及代码示例"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">属性功能及代码示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#父容器上的6大属性"><span class="toc-number">1.0.1.</span> <span class="toc-text">父容器上的6大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-flex-direction属性决定主轴的方向（即项目的排列方向）。"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">1. flex-direction属性决定主轴的方向（即项目的排列方向）。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-flex-wrap属性定义，如果一条轴线排不下，如何换行。"><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">2. flex-wrap属性定义，如果一条轴线排不下，如何换行。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-flex-flow是flex-direction-flex-wrap的简写形式。"><span class="toc-number">1.0.1.0.3.</span> <span class="toc-text">3. flex-flow是flex-direction + flex-wrap的简写形式。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-justify-content属性定义了子项目在父容器主轴-main-axis-上的对齐方式（注意：不要忘记主轴方向是flex-direction定义过的哦，在此主轴方向上justify-content控制子项目在主轴上的对齐方式）。"><span class="toc-number">1.0.1.0.4.</span> <span class="toc-text">4. justify-content属性定义了子项目在父容器主轴(main axis)上的对齐方式（注意：不要忘记主轴方向是flex-direction定义过的哦，在此主轴方向上justify-content控制子项目在主轴上的对齐方式）。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-align-items属性定义项目在侧轴上如何对齐。"><span class="toc-number">1.0.1.0.5.</span> <span class="toc-text">5. align-items属性定义项目在侧轴上如何对齐。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。-当项目换为多行时，可使用align-content取代align-items"><span class="toc-number">1.0.1.0.6.</span> <span class="toc-text">6. align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。(当项目换为多行时，可使用align-content取代align-items)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子项目上的6大属性"><span class="toc-number">1.0.2.</span> <span class="toc-text">子项目上的6大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1. order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-flex-grow属性定义项目的放大比例。默认为0（即有剩余空间也不放大"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2. flex-grow属性定义项目的放大比例。默认为0（即有剩余空间也不放大)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#3-flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。设置为0的话就不缩小（其余div可能挤压得更严重），如果全设置为0的话那多余的div会溢出父容器（多余的部分就伸出父容器了）"><span class="toc-number">1.0.2.0.2.1.</span> <span class="toc-text">3. flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。设置为0的话就不缩小（其余div可能挤压得更严重），如果全设置为0的话那多余的div会溢出父容器（多余的部分就伸出父容器了）</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-flex-basis定义项目占据的主轴空间。-如果主轴为水平，则设置这个属性，相当于设置项目的宽度。-原width将会失效。"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">4. flex-basis定义项目占据的主轴空间。(如果主轴为水平，则设置这个属性，相当于设置项目的宽度。 原width将会失效。)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-flex属性是flex-grow-flex-shrink-和-flex-basis的简写，默认值为0-1-auto。后两个属性可选。"><span class="toc-number">1.0.2.0.4.</span> <span class="toc-text">5. flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-align-self-定义单个项目自己在侧轴上的排列方式（会覆盖掉父容器上统一设置的align-items属性）"><span class="toc-number">1.0.2.0.5.</span> <span class="toc-text">6. align-self:定义单个项目自己在侧轴上的排列方式（会覆盖掉父容器上统一设置的align-items属性）</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
