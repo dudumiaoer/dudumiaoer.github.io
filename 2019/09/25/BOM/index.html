@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BOM - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="ZouZou,"> 
+    <meta name="description" content="概述BOM(BrowserObjectMode)浏览器对象模型，是javaScript里面的重要部分，它提供了一系列有很多方法与属性的对象。这些对象用于与浏览器窗口进行交互操作所有和浏览器相关的东西,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://dudumiaoer.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">BOM</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">BOM</h1>
+        <div class="stuff">
+            <span>九月 25, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>BOM(BrowserObjectMode)浏览器对象模型，是javaScript里面的重要部分，它提供了一系列有很多方法与属性的对象。这些对象用于与浏览器窗口进行交互操作所有和浏览器相关的东西（网页文档dom，历史记录，浏览器屏幕，浏览器信息，文档的地址url，页面的框架集），这些对象通常统称为BOM。<br><img src="//dudumiaoer.github.io/2019/09/25/BOM/img1.png" alt></p>
+<h4 id="1-window对象"><a href="#1-window对象" class="headerlink" title="1. window对象"></a>1. window对象</h4><p>window对象是整个BOM对象的核心，表示浏览器中打开的窗口。如果文档包含框架（frame或iframe标签），浏览器会为HTML文档创建一个window对象，并为每个框架创建一个额外的window对象。所有的浏览器都是支持window对象的。<br><img src="//dudumiaoer.github.io/2019/09/25/BOM/img2.png" alt></p>
+<h5 id="window对象属性"><a href="#window对象属性" class="headerlink" title="window对象属性"></a>window对象属性</h5><pre><code>closed    返回窗口是否已被关闭。
+defaultStatus    设置或返回窗口状态栏中的默认文本。
+document    对Document对象的只读引用。(请参阅对象)
+frames    返回窗口中所有命名的框架。该集合是Window对象的数组，每个Window对象在窗口中含有一个框架。
+history    对History对象的只读引用。请参数 History对象。
+innerHeight    返回窗口的文档显示区的高度。
+innerWidth    返回窗口的文档显示区的宽度。
+localStorage    在浏览器中存储key/value对。没有过期时间。
+length    设置或返回窗口中的框架数量。
+location    用于窗口或框架的Location对象。请参阅 Location对象。
+name    设置或返回窗口的名称。
+navigator    对Navigator对象的只读引用。请参数 Navigator对象。（就是下面那个整个拉出来说的浏览器对象）
+opener    返回对创建此窗口的窗口的引用。
+outerHeight    返回窗口的外部高度，包含工具条与滚动条。
+outerWidth    返回窗口的外部宽度，包含工具条与滚动条。
+pageXOffset    设置或返回当前页面相对于窗口显示区左上角的X位置。
+pageYOffset    设置或返回当前页面相对于窗口显示区左上角的Y位置。
+parent    返回父窗口。
+screen    对Screen对象的只读引用。请参数 Screen对象。（就是下面那个整个拉出来说的Screen浏览器对象）
+screenLeft    返回相对于屏幕窗口的x坐标
+screenTop    返回相对于屏幕窗口的y坐标
+screenX    返回相对于屏幕窗口的x坐标
+sessionStorage    在浏览器中存储key/value对。在关闭窗口或标签页之后将会删除这些数据。
+screenY    返回相对于屏幕窗口的y坐标
+self    返回对当前窗口的引用。等价于Window属性。
+status    设置窗口状态栏的文本。
+top    返回最顶层的父窗口。</code></pre><h5 id="Window对象方法"><a href="#Window对象方法" class="headerlink" title="Window对象方法"></a>Window对象方法</h5><pre><code>alert()    显示带有一段消息和一个确认按钮的警告框。
+atob()    解码一个base-64编码的字符串。
+btoa()    创建一个base-64编码的字符串。
+blur()    把键盘焦点从顶层窗口移开。
+clearInterval()    取消由setInterval()设置的timeout。
+clearTimeout()    取消由setTimeout()方法设置的timeout。
+close()    关闭浏览器窗口(只能关掉window.open()自己打开的)。
+confirm()    显示带有一段消息以及确认按钮和取消按钮的对话框。
+createPopup()    创建一个pop-up窗口。
+focus()    把键盘焦点给予一个窗口。
+getSelection()    返回一个Selection对象，表示用户选择的文本范围或光标的当前位置。
+getComputedStyle()    获取指定元素的CSS样式。
+matchMedia()    该方法用来检查mediaquery语句，它返回一个MediaQueryList对象。
+moveBy()    可相对窗口的当前坐标把它移动指定的像素。
+moveTo()    把窗口的左上角移动到一个指定的坐标。
+open()    打开一个新的浏览器窗口或查找一个已命名的窗口。
+print()    打印当前窗口的内容。
+prompt()    显示可提示用户输入的对话框。
+resizeBy()    按照指定的像素调整窗口的大小。
+resizeTo()    把窗口的大小调整到指定的宽度和高度。
+scroll()    已废弃。 该方法已经使用了 scrollTo() 方法来替代。
+scrollBy()    按照指定的像素值来滚动内容。
+scrollTo()    把内容滚动到指定的坐标。
+setInterval()    按照指定的周期（以毫秒计）来调用函数或计算表达式。
+setTimeout()    在指定的毫秒数后调用函数或计算表达式。
+stop()    停止页面载入。</code></pre><p>一个简单的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 打开窗口方法</span><br><span class="line">var winObj = null</span><br><span class="line">function openWin () &#123;</span><br><span class="line">winObj = window.open('url', 'name', 'specs')</span><br><span class="line">// window.open功能强大参数设置复杂，具体可以参考 https://www.runoob.com/jsref/met-win-open.html</span><br><span class="line">&#125;</span><br><span class="line">// 关闭窗口方法</span><br><span class="line">function closeWin () &#123;</span><br><span class="line">window.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>感觉window对象内容还是挺多的，不太好记啊</p>
+<h4 id="2-navigator对象"><a href="#2-navigator对象" class="headerlink" title="2.navigator对象"></a>2.navigator对象</h4><p>Navigator对象代表的就是当前浏览器，提供了当前浏览器信息和两个浏览器对象方法。</p>
+<h5 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h5><pre><code>appCodeName    返回浏览器的代码名
+appName    返回浏览器的名称
+appVersion    返回浏览器的平台和版本信息
+cookieEnabled    返回指明浏览器中是否启用cookie的布尔值
+platform    返回运行浏览器的操作系统平台
+userAgent    返回由客户机发送服务器的user-agent头部的值</code></pre><h5 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h5><pre><code>javaEnabled()    指定是否在浏览器中启用Java
+taintEnabled()    规定浏览器是否启用数据污点(datatainting)</code></pre><p>一个简单的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var appName = navigator.appName</span><br><span class="line">var appCodeName = navigator.appCodeName</span><br><span class="line">var appVersion = navigator.appVersion</span><br><span class="line">var cookieEnabled = navigator.cookieEnabled</span><br><span class="line">var platform = navigator.platform</span><br><span class="line">var userAgent = navigator.userAgent</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-screen对象"><a href="#3-screen对象" class="headerlink" title="3. screen对象"></a>3. screen对象</h4><p>主要用来获取用户屏幕信息</p>
+<h5 id="对象属性-1"><a href="#对象属性-1" class="headerlink" title="对象属性"></a>对象属性</h5><pre><code>availHeight    返回屏幕的高度（不包括Windows任务栏）
+availWidth    返回屏幕的宽度（不包括Windows任务栏）
+colorDepth    返回目标设备或缓冲器上的调色板的比特深度
+height    返回屏幕的总高度
+pixelDepth    返回屏幕的颜色分辨率（每象素的位数）
+width    返回屏幕的总宽度</code></pre><h4 id="4-history对象"><a href="#4-history对象" class="headerlink" title="4. history对象"></a>4. history对象</h4><p>history对象包含浏览器中已经访问过的url地址，提供了返回和跳转的一些方法。History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。</p>
+<h5 id="对象属性-2"><a href="#对象属性-2" class="headerlink" title="对象属性"></a>对象属性</h5><pre><code>length    返回历史列表中的网址数
+state    返回当前页面的state对象，想改变此对象可以给pushState和replaceState的第一个参数传参</code></pre><h5 id="对象方法-1"><a href="#对象方法-1" class="headerlink" title="对象方法"></a>对象方法</h5><pre><code>back()    加载history列表中的前一个URL（没有参数默认是返回上一页）
+forward()    加载history列表中的下一个URL
+go()    加载history列表中的某个具体页面 // 有数字参数，代表的就是历史列表里面的url地址，比如0就代表当前页，history.go(0)会刷新当前页，
+pushState(state, title, url)    html5新API，在历史列表中无刷新&quot;添加&quot;一个历史记录 // 地址栏会改变（手动刷新能跳到新地址），要求必须是同域的,url参数如果是以&apos;?&apos;开头，则url的值会代替seach的值，如果是以&apos;#&apos;开头，则url的值会代替hash的值，如果是以&apos;/&apos;开头，则url的值会代替/后的值。我测试的现象是只改变了域名：端口号后面的内容，有回退效果（代表是添加了一个记录还能返回前页）
+replaceState(state, title, url）    html5新API，参数和pushState一样，两者区别在于它是&quot;修改&quot;浏览历史中的当前记录，而并非创建一个新的，并不会增加后退效果，但是和pushState一样都会改变当前地址栏的地址</code></pre><p>历史记录是可以监听的，window对象提供了hashchange方法，当前url的hash改变的时候会触发该事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.onhashchange = function()&#123;</span><br><span class="line">    console.log(location.hash)</span><br><span class="line">&#125;   // hashchange事件必须绑定再widnow对象上</span><br></pre></td></tr></table></figure>
+
+<p>ll</p>
+<h4 id="5-location对象"><a href="#5-location对象" class="headerlink" title="5. location对象"></a>5. location对象</h4><p>location 对象包含有关”当前”URL的信息，可以对当前页面的url进行处理和获取信息，location 对象是 window 对象的一部分，可通过 window.location 属性对其进行访问。</p>
+<h5 id="对象属性-3"><a href="#对象属性-3" class="headerlink" title="对象属性"></a>对象属性</h5><pre><code>hash    返回一个URL的锚部分
+host    返回一个URL的主机名和端口
+hostname    返回URL的主机名
+href    返回完整的URL
+pathname    返回的URL路径名。
+port    返回一个URL服务器使用的端口号
+protocol    返回一个URL协议
+search    返回一个URL的查询部分</code></pre><h5 id="对象方法-2"><a href="#对象方法-2" class="headerlink" title="对象方法"></a>对象方法</h5><pre><code>assign()    载入一个新的文档
+reload()    重新载入当前文档
+replace()    用新的文档替换当前文档</code></pre><p>这里对window.open方法和location.hrf做一下区分：window.open(“<a href="http://www.baidu.com&quot;,&#39;top&#39;" target="_blank" rel="noopener">www.baidu.com&quot;,&#39;top&#39;</a>); 只是表示打开这个页面，并不是打开并刷新<a href="http://www.baidu.com。而location.href=&quot;www.baidu.com&quot;" target="_blank" rel="noopener">www.baidu.com。而location.href=&quot;www.baidu.com&quot;</a>; 表示重新定向到新页面，同时刷新打开的这个页面。</p>
+<h4 id="储存对象"><a href="#储存对象" class="headerlink" title="储存对象"></a>储存对象</h4><p>Web存储API提供了 sessionStorage （会话存储） 和 localStorage（本地存储）两个存储对象来对网页的数据进行添加、删除、修改、查询操作。</p>
+<ul>
+<li>localStorage 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。</li>
+<li>sessionStorage 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。<br>两者提供的属性和方法是一致的<h5 id="对象属性-4"><a href="#对象属性-4" class="headerlink" title="对象属性"></a>对象属性</h5><pre><code>返回存储对象中包含多少条数据。</code></pre><h5 id="对象方法-3"><a href="#对象方法-3" class="headerlink" title="对象方法"></a>对象方法</h5><pre><code>key(n)    返回存储对象中第 n 个键的名称
+getItem(keyname)    返回指定键的值
+setItem(keyname, value)    添加键和值，如果对应的值存在，则更新该键对应的值。
+removeItem(keyname)    移除键
+clear()    清除存储对象中所有的键</code></pre></li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-window对象"><span class="toc-number">2.</span> <span class="toc-text">1. window对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#window对象属性"><span class="toc-number">2.1.</span> <span class="toc-text">window对象属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Window对象方法"><span class="toc-number">2.2.</span> <span class="toc-text">Window对象方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-navigator对象"><span class="toc-number">3.</span> <span class="toc-text">2.navigator对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象属性"><span class="toc-number">3.1.</span> <span class="toc-text">对象属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对象方法"><span class="toc-number">3.2.</span> <span class="toc-text">对象方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-screen对象"><span class="toc-number">4.</span> <span class="toc-text">3. screen对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象属性-1"><span class="toc-number">4.1.</span> <span class="toc-text">对象属性</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-history对象"><span class="toc-number">5.</span> <span class="toc-text">4. history对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象属性-2"><span class="toc-number">5.1.</span> <span class="toc-text">对象属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对象方法-1"><span class="toc-number">5.2.</span> <span class="toc-text">对象方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-location对象"><span class="toc-number">6.</span> <span class="toc-text">5. location对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象属性-3"><span class="toc-number">6.1.</span> <span class="toc-text">对象属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对象方法-2"><span class="toc-number">6.2.</span> <span class="toc-text">对象方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#储存对象"><span class="toc-number">7.</span> <span class="toc-text">储存对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象属性-4"><span class="toc-number">7.1.</span> <span class="toc-text">对象属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对象方法-3"><span class="toc-number">7.2.</span> <span class="toc-text">对象方法</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
